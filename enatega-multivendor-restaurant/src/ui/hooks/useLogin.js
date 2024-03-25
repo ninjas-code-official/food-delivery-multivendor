@@ -3,7 +3,7 @@ import { useMutation, gql, useQuery } from '@apollo/client'
 import { FlashMessage } from '../../components'
 import { login as loginQuery, defaultRestaurantCreds } from '../../apollo'
 import { validateLogin } from '../validate'
-import { AuthContext } from '../context'
+import { AuthContext, Configuration } from '../context'
 
 export default function useLogin() {
   const [errors, setErrors] = useState()
@@ -12,6 +12,8 @@ export default function useLogin() {
   const [password, setPassword] = useState('')
   const usernameRef = useRef()
   const passwordRef = useRef()
+  const [showVideo, setShowVideo] = useState(false)
+  const configuration = useContext(Configuration)
   const [mutate, { loading, error }] = useMutation(
     gql`
       ${loginQuery}
@@ -62,6 +64,9 @@ export default function useLogin() {
     setPassword,
     setUserName,
     username,
-    password
+    password,
+    showVideo,
+    setShowVideo,
+    configuration
   }
 }

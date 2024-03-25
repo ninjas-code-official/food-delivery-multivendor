@@ -9,6 +9,7 @@ import { gql, useMutation, useQuery } from '@apollo/client'
 import * as Notifications from 'expo-notifications'
 import * as Device from 'expo-device'
 import { useTranslation } from 'react-i18next'
+import ConfigurationContext from '../../context/configuration'
 
 const RIDER_LOGIN = gql`
   ${riderLogin}
@@ -23,6 +24,8 @@ const useLogin = () => {
   const [usernameError, setUsernameError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
   const { height } = Dimensions.get('window')
+  const [showVideo, setShowVideo] = useState(false)
+  const configuration = useContext(ConfigurationContext)
 
   const { setTokenAsync } = useContext(AuthContext)
 
@@ -122,7 +125,10 @@ const useLogin = () => {
     showPassword,
     setShowPassword,
     loading,
-    height
+    height,
+    showVideo,
+    setShowVideo,
+    configuration
   }
 }
 

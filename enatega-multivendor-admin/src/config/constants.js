@@ -22,6 +22,7 @@ const ConfigurableValues = () => {
   const VAPID_KEY =
     'BOpVOtmawD0hzOR0F5NQTz_7oTlNVwgKX_EgElDnFuILsaE_jWYPIExAMIIGS-nYmy1lhf2QWFHQnDEFWNG_Z5w'
   const PAID_VERSION = configuration.isPaidVersion
+  const ENABLE_ADMIN_DEMO = configuration.enableAdminDemo
 
   return {
     GOOGLE_MAPS_KEY,
@@ -38,7 +39,8 @@ const ConfigurableValues = () => {
     CLOUDINARY_UPLOAD_URL,
     CLOUDINARY_FOOD,
     VAPID_KEY,
-    PAID_VERSION
+    PAID_VERSION,
+    ENABLE_ADMIN_DEMO
   }
 }
 
